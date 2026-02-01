@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Letter</title>
+
+    <style>
+        body{
+            background:#fff8dc;
+            font-family:Arial;
+            display:flex;
+            justify-content:center;
+        }
+
+        .paper{
+            background:white;
+            width:70%;
+            margin-top:40px;
+            padding:25px;
+            border-radius:20px;
+            box-shadow:0 0 20px rgba(0,0,0,0.1);
+        }
+
+        .btn{
+            margin-top:15px;
+            padding:10px 18px;
+            border:none;
+            border-radius:12px;
+            background:#ffb7c5;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div class="paper">
+
+    <h2>To: [HER NAME]</h2>
+
+    <p>
+        Today I celebrate you — not just for the day you were born,
+        but for every beautiful moment you’ve brought into my life
+        since the day we met.
+    </p>
+
+    <p>
+        Thank you for being my constant source of strength,
+        laughter, and peace. With you, love feels gentle, safe,
+        and full of warmth.
+    </p>
+
+    <p>
+        I admire your kindness, your heart, your patience,
+        and the way you always manage to make everything
+        feel better just by being near.
+    </p>
+
+    <p>
+        You inspire me to grow, to dream bigger,
+        and to love more deeply.
+        May this year bring you all the happiness
+        you give to others.
+    </p>
+
+    <p>
+        I promise to always be by your side
+        in every version of your story.
+    </p>
+
+    <p>— Aydin 💛</p>
+
+
+    <button class="btn" onclick="goBack()">Back</button>
+
+</div>
+
+<script>
+    function goBack(){
+        // fake closing feel
+        document.body.style.opacity="0";
+
+        setTimeout(()=>{
+            window.location.href = "yes.html";
+        }, 600);
+    }
+</script>
+
+<!-- 🎵 BACKGROUND MUSIC -->
+<audio id="bgMusic" loop>
+    <source src="assets/SUPERPOSITION%20(feat.%20John%20Mayer).mp3" type="audio/mp3">
+</audio>
+
+</body>
+</html>
