@@ -11,86 +11,109 @@
   <!-- Styles -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- Custom JS -->
   <script src="script.js" defer></script>
 </head>
+
 <body>
 
 <div class="container front-page">
+
   <h1 class="title">HAPPY BIRTHDAY, ARISSA!</h1>
 
-  <img src="assets/cute_cake.png" alt="Cute Cake" class="front-cake">
+  <img src="assets/cute_cake.png" class="front-cake">
 
   <div class="love-stickers">
-    <img src="assets/love_sticker2.png" alt="Love Sticker" class="sticker">
+    <img src="assets/love_sticker2.png" class="sticker">
   </div>
 
-  <!-- ⏳ COUNTDOWN TIMER START -->
+  <!-- ⏳ COUNTDOWN -->
   <div id="countdownBox">
     <h2 class="count-title">Opening In:</h2>
     <div id="timer">00d 00h 00m 00s</div>
     <p id="lockText">sabar ye , sikit lagi ! 🎂</p>
   </div>
-  <!-- ⏳ COUNTDOWN TIMER END -->
 
-  <!-- BUTTONS (LOCKED UNTIL COUNTDOWN ENDS) -->
+  <!-- 🔒 BUTTONS HIDDEN FIRST -->
   <div class="front-buttons" id="mainButtons" style="display:none;">
-    <button id="yes-btn" onclick="location.href='yes.html'">YESS!</button>
-    <button onclick="location.href='no.html'">NOO!?</button>
+
+    <button id="yes-btn" onclick="location.href='yes.html'">
+      NAKK!!
+    </button>
+
+    <button onclick="location.href='no.html'">
+      TAK NAK!!
+    </button>
+
   </div>
 
-  <!-- 🎵 MUSIC CONTROLS -->
+  <!-- 🎵 MUSIC -->
   <div class="music-controls" style="margin-top:20px;">
     <button id="playMusic">🎵 Play Music</button>
     <button id="pauseMusic">⏸️ Pause Music</button>
   </div>
+
 </div>
 
-<!-- 🎵 BACKGROUND MUSIC -->
 <audio id="bgMusic" loop>
   <source src="assets/SUPERPOSITION%20(feat.%20John%20Mayer).mp3" type="audio/mp3">
 </audio>
 
 <script>
-  // 🎵 MUSIC BUTTONS
-  const music = document.getElementById('bgMusic');
-  document.getElementById('playMusic').addEventListener('click', () => {
-    music.play().catch(() => {
-      alert("Tap the play button to start music 🎵");
-    });
-  });
-  document.getElementById('pauseMusic').addEventListener('click', () => {
-    music.pause();
-  });
+// MUSIC CONTROL
+const music = document.getElementById('bgMusic');
 
-  // Countdown timer example (update to your real birthday)
-  const countdown = new Date("2026-02-10T00:00:00").getTime(); // set your real birthday
-  const timerDisplay = document.getElementById("timer");
-  const mainButtons = document.getElementById("mainButtons");
+document.getElementById('playMusic').onclick = () => {
+  music.play().catch(()=> alert("Tap play first hehe 🎵"));
+};
 
-  const interval = setInterval(() => {
-    const now = new Date().getTime();
-    const distance = countdown - now;
+document.getElementById('pauseMusic').onclick = () => {
+  music.pause();
+};
 
-    if(distance <= 0){
-      clearInterval(interval);
-      timerDisplay.textContent = "🎉 Surprise Unlocked! 🎉";
-      mainButtons.style.display = "block"; // SHOW buttons
-    } else {
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000*60*60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000*60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-      timerDisplay.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-    }
-  }, 1000);
+// AUTO PLAY WHEN PRESS NAKK!!
+document.getElementById('yes-btn').onclick = () => {
+  music.play().catch(()=>{});
+  location.href='yes.html';
+};
 
-  // Optional: start music automatically after YESS! click
-  document.getElementById('yes-btn').addEventListener('click', () => {
-    music.play().catch(() => {});
-  });
+// ⏳ COUNTDOWN LOGIC
+const countdown = new Date("2026-02-10T00:00:00").getTime();
+
+const timerDisplay = document.getElementById("timer");
+const mainButtons = document.getElementById("mainButtons");
+const lockText = document.getElementById("lockText");
+const countdownBox = document.getElementById("countdownBox");
+
+const interval = setInterval(() => {
+
+  const now = new Date().getTime();
+  const distance = countdown - now;
+
+  if(distance <= 0){
+
+    clearInterval(interval);
+
+    // HIDE ALL LOCK STUFF
+    countdownBox.style.display = "none";
+    lockText.style.display = "none";
+
+    // SHOW BUTTONS 🔥
+    mainButtons.style.display = "block";
+
+  } else {
+
+    const days = Math.floor(distance / (1000*60*60*24));
+    const hours = Math.floor((distance % (1000*60*60*24))/(1000*60*60));
+    const minutes = Math.floor((distance % (1000*60*60))/(1000*60));
+    const seconds = Math.floor((distance % (1000*60))/1000);
+
+    timerDisplay.textContent =
+      `${days}d ${hours}h ${minutes}m ${seconds}s`;
+  }
+
+}, 1000);
+
 </script>
 
 </body>
 </html>
-
