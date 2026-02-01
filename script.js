@@ -32,7 +32,7 @@ function createLoveRain() {
 const goBackBtn = document.getElementById('goBackBtn');
 if (goBackBtn) {
     goBackBtn.addEventListener('click', () => {
-        location.href = 'indexhb.html';
+        location.href = 'index.html';
     });
 }
 
@@ -155,6 +155,7 @@ if (timerBox) {
     var countdownInterval = setInterval(updateCountdown, 1000);
     updateCountdown();
 }
+
 
 
 
