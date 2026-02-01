@@ -32,7 +32,7 @@ function createLoveRain() {
 const goBackBtn = document.getElementById('goBackBtn');
 if (goBackBtn) {
     goBackBtn.addEventListener('click', () => {
-        location.href = 'index.html';
+        location.href = 'indexhb.html';
     });
 }
 
@@ -91,18 +91,15 @@ if (envelope) {
     });
 }
 
-// -------------------- FLOWER PAGE --------------------
+// -------------------- FLOWERS PAGE BACK BUTTON --------------------
 const backFlower = document.querySelector('.flowers-page .back-button');
 if (backFlower) {
     backFlower.addEventListener('click', () => location.href = 'yes.html');
 }
 
 // -------------------- BACKGROUND MUSIC SYSTEM --------------------
-
 const bgMusic = document.getElementById('bgMusic');
-
 if (bgMusic) {
-
     bgMusic.volume = 0.5;
 
     const savedTime = localStorage.getItem('bgMusicTime');
@@ -111,7 +108,7 @@ if (bgMusic) {
     }
 
     bgMusic.play().catch(() => {
-        console.log("User need interact first to play music");
+        console.log("User needs to interact first to play music");
     });
 
     setInterval(() => {
@@ -124,46 +121,37 @@ if (bgMusic) {
 }
 
 // =====================================================
-// 🔒 COUNTDOWN TIMER SYSTEM (NEW PART ADDED BY BRO GPT)
+// 🔒 COUNTDOWN TIMER SYSTEM (FRONT PAGE BUTTON LOCK)
 // =====================================================
-
-const birthdayDate = new Date("2026-02-21T00:00:00");
-// 👆 CHANGE THIS TO HER REAL BIRTHDAY
-
+const birthdayDate = new Date("2026-02-21T00:00:00"); // SET HER REAL BIRTHDAY
 const timerBox = document.getElementById("timer");
 const buttonsBox = document.getElementById("mainButtons");
 const lockText = document.getElementById("lockText");
 
 function updateCountdown() {
-
-    // Only run on front page
-    if (!timerBox) return;
+    if (!timerBox) return; // Only run on front page
 
     const now = new Date().getTime();
     const distance = birthdayDate - now;
 
-    // UNLOCK MODE
     if (distance <= 0) {
-        timerBox.innerHTML = "IT'S TIME!!! 🎉";
-        buttonsBox.style.display = "block";
+        timerBox.innerHTML = "🎉 IT'S TIME!!! 🎉";
         lockText.innerHTML = "Unlocked! 💖";
+        buttonsBox.classList.add("unlocked"); // unlock buttons via CSS
         clearInterval(countdownInterval);
         return;
     }
 
-    // CALC TIME
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    const days = Math.floor(distance / (1000*60*60*24));
+    const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+    const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
+    const seconds = Math.floor((distance % (1000*60)) / 1000);
 
-    timerBox.innerHTML =
-        days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+    timerBox.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
 }
 
-// START TIMER
+// START COUNTDOWN
 if (timerBox) {
     var countdownInterval = setInterval(updateCountdown, 1000);
     updateCountdown();
 }
-
