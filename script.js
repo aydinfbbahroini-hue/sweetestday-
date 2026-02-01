@@ -123,7 +123,7 @@ if (bgMusic) {
 // =====================================================
 // 🔒 COUNTDOWN TIMER SYSTEM (FRONT PAGE BUTTON LOCK)
 // =====================================================
-const birthdayDate = new Date("2026-02-01T00:00:00"); // SET HER REAL BIRTHDAY
+const birthdayDate = new Date("2026-02-21T00:00:00"); // SET HER REAL BIRTHDAY
 const timerBox = document.getElementById("timer");
 const buttonsBox = document.getElementById("mainButtons");
 const lockText = document.getElementById("lockText");
@@ -155,5 +155,6 @@ if (timerBox) {
     var countdownInterval = setInterval(updateCountdown, 1000);
     updateCountdown();
 }
+
 
 
