@@ -35,16 +35,48 @@
 
   <!-- BUTTONS (WILL BE HIDDEN UNTIL TIMER FINISH) -->
   <div class="front-buttons" id="mainButtons" style="display:none;">
-    <button id="yes-btn">YESS!</button>
+    <button id="yes-btn" onclick="location.href='yes.html'">YESS!</button>
     <button onclick="location.href='no.html'">NOO!?</button>
   </div>
 
+  <!-- 🎵 MUSIC CONTROLS -->
+  <div class="music-controls" style="margin-top:20px;">
+    <button id="playMusic">🎵 Play Music</button>
+    <button id="pauseMusic">⏸️ Pause Music</button>
+  </div>
 </div>
 
 <!-- 🎵 BACKGROUND MUSIC -->
 <audio id="bgMusic" loop>
   <source src="assets/SUPERPOSITION%20(feat.%20John%20Mayer).mp3" type="audio/mp3">
 </audio>
+
+<script>
+  // Countdown timer logic (demo countdown)
+  let timer = document.getElementById("timer");
+  let mainButtons = document.getElementById("mainButtons");
+
+  setTimeout(() => {
+    timer.textContent = "00d 00h 00m 00s";
+    mainButtons.style.display = "block";
+  }, 3000); // 3 seconds demo countdown
+
+  // 🎵 MUSIC BUTTONS
+  const music = document.getElementById('bgMusic');
+  document.getElementById('playMusic').addEventListener('click', () => {
+    music.play().catch(() => {
+      alert("Tap the play button to start music 🎵");
+    });
+  });
+  document.getElementById('pauseMusic').addEventListener('click', () => {
+    music.pause();
+  });
+
+  // OPTIONAL: start music automatically after YESS! click
+  document.getElementById('yes-btn').addEventListener('click', () => {
+    music.play().catch(() => {});
+  });
+</script>
 
 </body>
 </html>
