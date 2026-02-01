@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Memories 📸</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Custom JS -->
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+<!-- Optional floating hearts background -->
+<div class="sparkles"></div>
+
+<div class="container memories-page">
+  <button class="back-button" onclick="location.href='yes.html'">← Back</button>
+
+  <h1 class="title">Our Memories 📷</h1>
+
+  <div class="polaroid-container">
+    <div class="polaroid" style="--rotate:-5deg; --delay:0s;">
+      <img src="assets/memory_photo1.jpg" alt="Memory Photo 1" class="memory-photo">
+      <p class="caption">Best Moment 💖</p>
+    </div>
+
+    <div class="polaroid" style="--rotate:3deg; --delay:0.2s;">
+      <img src="assets/1.png" alt="Memory Photo 2" class="memory-photo">
+      <p class="caption">Fun Times 😄</p>
+    </div>
+
+    <div class="polaroid" style="--rotate:-2deg; --delay:0.4s;">
+      <img src="assets/memory_photo3.jpg" alt="Memory Photo 3" class="memory-photo">
+      <p class="caption">Sweet Memories 💕</p>
+    </div>
+  </div>
+
+  <!-- 🎵 BACKGROUND MUSIC -->
+  <audio id="bgMusic" loop>
+    <source src="assets/SUPERPOSITION%20(feat.%20John%20Mayer).mp3" type="audio/mp3">
+  </audio>
+
+</body>
+</html>

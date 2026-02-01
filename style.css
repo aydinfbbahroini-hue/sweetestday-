@@ -1,0 +1,486 @@
+/* -------------------- GENERAL BODY -------------------- */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Pacifico', cursive;
+    background: #fff0f5;
+    overflow-x: hidden;
+}
+
+/* -------------------- FRONT PAGE -------------------- */
+.container.front-page {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.front-page .title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 4rem;
+    color: #ff69b4;
+    -webkit-text-stroke: 2px #ff1493;
+    text-stroke: 2px #ff1493;
+    text-shadow:
+            0 0 5px #fff,
+            0 0 10px #ff69b4,
+            0 0 20px #ff69b4,
+            0 0 30px #ff1493;
+    animation: glowPulse 2s infinite alternate;
+}
+
+.front-cake {
+    width: 250px;
+    margin: 20px 0;
+}
+
+.love-stickers .sticker {
+    width: 100px;
+    margin: 10px;
+}
+
+.front-buttons button {
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    margin: 10px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    background: linear-gradient(45deg, #ff69b4, #ff1493);
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(255, 20, 147, 0.5);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.front-buttons button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(255, 20, 147, 0.7);
+}
+
+/* -------------------- YES PAGE -------------------- */
+.container.yes-page {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 50px 20px;
+    background: rgba(255, 240, 245, 0.9);
+    border-radius: 30px;
+    box-shadow: 0 15px 40px rgba(255, 105, 180, 0.3);
+    animation: cardPop 0.8s ease forwards;
+}
+
+.yes-page .title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 4rem;
+    color: #ff69b4;
+    -webkit-text-stroke: 2px #ff1493;
+    text-stroke: 2px #ff1493;
+    text-shadow:
+            0 0 5px #fff,
+            0 0 10px #ff69b4,
+            0 0 20px #ff69b4,
+            0 0 30px #ff1493;
+    animation: glowPulse 2s infinite alternate;
+}
+
+/* YES PAGE STICKERS */
+.yes-page .love-stickers {
+    margin-top: 20px;
+}
+
+.yes-page .love-stickers .sticker {
+    width: 80px;
+    margin: 0 10px;
+    animation: floatSticker 4s ease-in-out infinite;
+}
+
+/* YES PAGE IMAGE BUTTONS */
+.yes-page .image-buttons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.yes-page .image-buttons button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.yes-page .image-buttons button img {
+    width: 120px; /* perfectly sized */
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(255, 105, 180, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.yes-page .image-buttons button:hover img {
+    transform: scale(1.15) rotate(-5deg);
+    box-shadow: 0 10px 30px rgba(255, 105, 180, 0.5);
+}
+
+/* LOVE HEARTS RAIN (YES PAGE ONLY) */
+.yes-page .love-heart {
+    position: fixed;
+    top: -50px;
+    width: 25px;
+    height: 25px;
+    background-color: #ff69b4;
+    clip-path: polygon(
+            50% 0%, 61% 10%, 70% 25%, 50% 50%, 30% 25%, 39% 10%
+    );
+    opacity: 0.8;
+    pointer-events: none;
+    z-index: 1000;
+    animation-name: fallHeart;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes fallHeart {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+    50% { transform: translateY(50vh) rotate(180deg); opacity: 0.9; }
+    100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+
+/* -------------------- NO PAGE -------------------- */
+.container.no-page {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+    padding: 50px 20px;
+    background: rgba(255, 240, 245, 0.9);
+    border-radius: 30px;
+    box-shadow: 0 15px 40px rgba(255, 105, 180, 0.3);
+    animation: cardPop 0.8s ease forwards;
+}
+
+.no-page .title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.5rem;
+    color: #ff69b4;
+    -webkit-text-stroke: 2px #ff1493;
+    text-stroke: 2px #ff1493;
+    text-shadow:
+            0 0 5px #fff,
+            0 0 10px #ff69b4,
+            0 0 20px #ff69b4,
+            0 0 30px #ff1493;
+    animation: glowPulse 2s infinite alternate;
+    margin-bottom: 30px;
+}
+
+.no-page .love-stickers {
+    margin-bottom: 30px;
+}
+
+.no-page .love-stickers .sticker {
+    width: 80px;
+    margin: 0 10px;
+    animation: floatSticker 4s ease-in-out infinite;
+}
+
+.back-buttons button {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    background: linear-gradient(45deg, #ff69b4, #ff1493);
+    color: white;
+    box-shadow: 0 5px 20px rgba(255, 105, 180, 0.5);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.back-buttons button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 30px rgba(255, 105, 180, 0.7);
+}
+
+/* -------------------- MEMORIES PAGE -------------------- */
+.container.memories-page {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.memories-page .title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.5rem;
+    color: #ff69b4;
+    text-shadow: 0 0 5px #fff, 0 0 10px #ff69b4, 0 0 20px #ff1493;
+    margin-bottom: 30px;
+}
+
+.memory-photo {
+    width: 300px;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(255,105,180,0.3);
+    animation: polaroidDrop 0.6s ease forwards;
+    display: inline-block;
+}
+
+/* -------------------- POLAROID ANIMATION -------------------- */
+@keyframes polaroidDrop {
+    0% {
+        transform: translateY(-50px) rotate(var(--rotate, -3deg)) scale(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0) rotate(var(--rotate, -3deg)) scale(1);
+        opacity: 1;
+    }
+}
+
+/* -------------------- FLOWERS PAGE -------------------- */
+.container.flowers-page {
+    position: relative;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.flowers-page .title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.8rem;
+    color: #ff69b4;
+    text-shadow:
+            0 0 5px #fff,
+            0 0 10px #ff69b4,
+            0 0 20px #ff69b4,
+            0 0 30px #ff1493;
+    margin-bottom: 30px;
+    animation: glowPulse 2s infinite alternate;
+}
+
+.flower-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 25px;
+    box-shadow: 0 10px 40px rgba(255,105,180,0.2);
+    position: relative;
+    z-index: 1;
+    animation: cardPop 0.8s ease forwards;
+}
+
+.flower-image img {
+    width: 300px;
+    border-radius: 20px;
+    box-shadow: 0 5px 25px rgba(255,105,180,0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.flower-image img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 35px rgba(255,105,180,0.5);
+}
+
+.flower-info {
+    max-width: 350px;
+    text-align: left;
+}
+
+.flower-name {
+    font-size: 2rem;
+    color: #ff1493;
+    margin-bottom: 10px;
+}
+
+.flower-description, .personal-message {
+    font-size: 1.1rem;
+    color: #ff69b4;
+    margin-bottom: 8px;
+}
+
+/* -------------------- FALLING PETALS -------------------- */
+.petals-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.petal {
+    position: absolute;
+    top: -50px;
+    width: 20px;
+    height: 20px;
+    background-image: url('assets/petal.png'); /* small PNG petal */
+    background-size: cover;
+    opacity: 0.8;
+    animation-name: fallPetal;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes fallPetal {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+    100% { transform: translateY(100vh) rotate(360deg); opacity: 0.9; }
+}
+
+/* -------------------- SHARED ANIMATIONS -------------------- */
+@keyframes glowPulse {
+    0% { text-shadow: 0 0 5px #fff,0 0 10px #ff69b4,0 0 20px #ff69b4,0 0 30px #ff1493; }
+    50% { text-shadow: 0 0 10px #fff,0 0 20px #ff69b4,0 0 40px #ff69b4,0 0 60px #ff1493; }
+    100% { text-shadow: 0 0 5px #fff,0 0 10px #ff69b4,0 0 20px #ff69b4,0 0 30px #ff1493; }
+}
+
+@keyframes floatSticker {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+@keyframes cardPop {
+    0% { transform: scale(0); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* -------------------- LETTER PAGE -------------------- */
+.container.letter-page {
+    position: relative;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.letter-page .title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.8rem;
+    color: #ff69b4;
+    text-shadow:
+            0 0 5px #fff,
+            0 0 10px #ff69b4,
+            0 0 20px #ff69b4,
+            0 0 30px #ff1493;
+    margin-bottom: 30px;
+    animation: glowPulse 2s infinite alternate;
+}
+
+/* Envelope Card */
+.envelope-card {
+    display: inline-block;
+    position: relative;
+    perspective: 1000px;
+}
+
+.envelope {
+    width: 300px;
+    height: 200px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(255,105,180,0.3);
+    position: relative;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    transition: transform 0.6s;
+}
+
+.envelope:hover {
+    transform: rotateX(10deg) rotateY(-10deg) scale(1.05);
+}
+
+/* Flap */
+.envelope-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 150px solid transparent;
+    border-right: 150px solid transparent;
+    border-bottom: 100px solid #ffb6c1;
+    border-radius: 15px;
+    transform-origin: top;
+    transition: transform 0.5s;
+}
+
+/* Open flap animation */
+.envelope.open .envelope-flap {
+    transform: rotateX(-180deg);
+}
+
+/* Envelope Body */
+.envelope-body {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background: #fff0f5;
+    border-radius: 0 0 15px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    box-shadow: inset 0 5px 15px rgba(255,105,180,0.2);
+    transform: translateY(20px);
+    opacity: 0;
+    transition: transform 0.6s, opacity 0.6s;
+}
+
+.envelope.open .envelope-body {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.letter-text {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.2rem;
+    color: #ff1493;
+    line-height: 1.5;
+}
+
+/* Floating Hearts */
+.floating-heart {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-color: #ff69b4;
+    clip-path: polygon(
+            50% 0%, 61% 10%, 70% 25%, 50% 50%, 30% 25%, 39% 10%
+    );
+    opacity: 0.8;
+    pointer-events: none;
+    animation: floatHeart 6s linear infinite;
+}
+
+@keyframes floatHeart {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+    50% { transform: translateY(-50px) rotate(180deg); opacity: 1; }
+    100% { transform: translateY(-100px) rotate(360deg); opacity: 0.6; }
+}
+
+/* -------------------- COUNTDOWN TIMER (FRONT PAGE LOCK) -------------------- */
+#timer {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    color: #ff1493;
+    text-shadow: 0 0 5px #fff, 0 0 10px #ff69b4, 0 0 20px #ff1493;
+    margin: 30px 0;
+    animation: glowPulse 2s infinite alternate;
+}
+
+#lockText {
+    font-family: 'Pacifico', cursive;
+    font-size: 1.3rem;
+    color: #ff69b4;
+    margin-bottom: 20px;
+}
+
+#mainButtons {
+    display: none; /* hidden until countdown ends */
+}

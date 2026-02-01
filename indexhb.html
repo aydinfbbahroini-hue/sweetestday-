@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Custom JS -->
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+<div class="container front-page">
+  <h1 class="title">HAPPY BIRTHDAY, ARISSA!</h1>
+
+  <img src="assets/cute_cake.png" alt="Cute Cake" class="front-cake">
+
+  <div class="love-stickers">
+    <img src="assets/love_sticker2.png" alt="Love Sticker" class="sticker">
+  </div>
+
+  <!-- ⏳ COUNTDOWN TIMER START -->
+  <div id="countdownBox">
+    <h2 class="count-title">Opening In:</h2>
+    <div id="timer">00d 00h 00m 00s</div>
+    <p id="lockText">This surprise will unlock on your birthday 🎂</p>
+  </div>
+  <!-- ⏳ COUNTDOWN TIMER END -->
+
+  <!-- BUTTONS (WILL BE HIDDEN UNTIL TIMER FINISH) -->
+  <div class="front-buttons" id="mainButtons" style="display:none;">
+    <button id="yes-btn">YESS!</button>
+    <button onclick="location.href='no.html'">NOO!?</button>
+  </div>
+
+</div>
+
+<!-- 🎵 BACKGROUND MUSIC -->
+<audio id="bgMusic" loop>
+  <source src="assets/SUPERPOSITION%20(feat.%20John%20Mayer).mp3" type="audio/mp3">
+</audio>
+
+</body>
+</html>
