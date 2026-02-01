@@ -1,50 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Special Letter 💌</title>
+  <title>Letter</title>
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="style.css">
+    body{
+      background: linear-gradient(to bottom, #fff0f6, #fff8dc);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+      font-family:Arial;
+      flex-direction:column;
+    }
 
-  <!-- Custom JS -->
-  <script src="script.js" defer></script>
+    /* HEADLINE */
+    .title{
+      font-family: 'Dancing Script', cursive;
+      font-size:36px;
+      color:#ff6b9c;
+      margin-bottom:15px;
+    }
+
+    /* IMAGE STICKERS */
+    .sticker{
+      position:absolute;
+      width:60px;        /* you can change size here */
+      height:auto;
+    }
+
+    .s1{ top:10%; left:20%; }
+    .s2{ top:18%; right:22%; }
+    .s3{ bottom:15%; left:18%; }
+    .s4{ bottom:18%; right:20%; }
+    .s5{ top:45%; left:8%; }
+    .s6{ top:48%; right:8%; }
+
+    /* ENVELOPE */
+    .envelope{
+      width:420px;
+      height:260px;
+      background:#3a6d8c;
+      position:relative;
+      border-radius:10px;
+      cursor:pointer;
+      transition:0.6s;
+      z-index:2;
+    }
+
+    .flap{
+      position:absolute;
+      top:0;
+      width:100%;
+      height:50%;
+      background:#2e5a75;
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+      transition:0.6s;
+      transform-origin:top;
+    }
+
+    .open .flap{
+      transform:rotateX(180deg);
+    }
+
+    .text{
+      position:absolute;
+      bottom:10px;
+      width:100%;
+      text-align:center;
+      color:white;
+    }
+  </style>
+
 </head>
+
 <body>
 
-<div class="container letter-page">
-  <!-- Back Button -->
-  <button class="back-button" id="letterBackButton">← Back</button>
+<div class="title">OPEN UP </div>
 
-  <h1 class="title">A Special Letter 💌</h1>
+<!-- YOUR IMAGE STICKERS -->
+<img class="sticker s1" src="love1.png">
+<img class="sticker s2" src="love2.png">
+<img class="sticker s3" src="love3.png">
+<img class="sticker s4" src="love4.png">
+<img class="sticker s5" src="love5.png">
+<img class="sticker s6" src="love6.png">
 
-  <!-- Envelope & Letter -->
-  <div class="envelope-card">
-    <div class="envelope" id="envelope">
-      <div class="envelope-flap"></div>
-      <div class="envelope-body">
-        <p class="letter-text" id="letterText">
-          Happy Birthday 💕<br>
-          Today, I just want to wish you the happiest of birthdays. I hope this year brings you endless moments of joy, laughter that echoes, dreams that take flight, and strength to chase everything your heart desires. May every challenge feel lighter, every smile feel brighter, and every step forward remind you of how amazing you truly are.
-
-          So here’s to you, my sweetest love. May this year be as wonderful as your heart, as gentle as your smile, and as unforgettable as the person you are. Thank you for being you, for being here, and for letting me be a part of your story.
-
-          With all my heart,
-          Aydin
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Floating hearts -->
-  <div class="floating-heart" style="top:-30px; left:15%;"></div>
-  <div class="floating-heart" style="top:-40px; left:50%;"></div>
-  <div class="floating-heart" style="top:-35px; left:85%;"></div>
+<div class="envelope" id="env" onclick="openLetter()">
+  <div class="flap"></div>
+  <div class="text">Click here</div>
 </div>
+
+<script>
+  function openLetter(){
+    document.getElementById("env").classList.add("open");
+
+    setTimeout(()=>{
+      window.location.href = "fullletter.html";
+    }, 700);
+  }
+</script>
 
 <!-- 🎵 BACKGROUND MUSIC -->
 <audio id="bgMusic" loop>
