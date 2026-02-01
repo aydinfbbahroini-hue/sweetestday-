@@ -33,7 +33,7 @@
   </div>
   <!-- ⏳ COUNTDOWN TIMER END -->
 
-  <!-- BUTTONS (WILL BE HIDDEN UNTIL TIMER FINISH) -->
+  <!-- BUTTONS (LOCKED UNTIL COUNTDOWN ENDS) -->
   <div class="front-buttons" id="mainButtons" style="display:none;">
     <button id="yes-btn" onclick="location.href='yes.html'">YESS!</button>
     <button onclick="location.href='no.html'">NOO!?</button>
@@ -52,15 +52,6 @@
 </audio>
 
 <script>
-  // Countdown timer logic (demo countdown)
-  let timer = document.getElementById("timer");
-  let mainButtons = document.getElementById("mainButtons");
-
-  setTimeout(() => {
-    timer.textContent = "00d 00h 00m 00s";
-    mainButtons.style.display = "block";
-  }, 3000); // 3 seconds demo countdown
-
   // 🎵 MUSIC BUTTONS
   const music = document.getElementById('bgMusic');
   document.getElementById('playMusic').addEventListener('click', () => {
@@ -72,7 +63,29 @@
     music.pause();
   });
 
-  // OPTIONAL: start music automatically after YESS! click
+  // Countdown timer example (update to your real birthday)
+  const countdown = new Date("2026-02-10T00:00:00").getTime(); // set your real birthday
+  const timerDisplay = document.getElementById("timer");
+  const mainButtons = document.getElementById("mainButtons");
+
+  const interval = setInterval(() => {
+    const now = new Date().getTime();
+    const distance = countdown - now;
+
+    if(distance <= 0){
+      clearInterval(interval);
+      timerDisplay.textContent = "🎉 Surprise Unlocked! 🎉";
+      mainButtons.style.display = "block"; // SHOW buttons
+    } else {
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000*60*60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000*60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      timerDisplay.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+  }, 1000);
+
+  // Optional: start music automatically after YESS! click
   document.getElementById('yes-btn').addEventListener('click', () => {
     music.play().catch(() => {});
   });
