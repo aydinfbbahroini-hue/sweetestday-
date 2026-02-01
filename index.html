@@ -59,62 +59,61 @@
 </audio>
 
 <script>
-// MUSIC CONTROL
-const music = document.getElementById('bgMusic');
+  // MUSIC CONTROL
+  const music = document.getElementById('bgMusic');
 
-document.getElementById('playMusic').onclick = () => {
-  music.play().catch(()=> alert("Tap play first hehe 🎵"));
-};
+  document.getElementById('playMusic').onclick = () => {
+    music.play().catch(()=> alert("Tap play first hehe 🎵"));
+  };
 
-document.getElementById('pauseMusic').onclick = () => {
-  music.pause();
-};
+  document.getElementById('pauseMusic').onclick = () => {
+    music.pause();
+  };
 
-// AUTO PLAY WHEN PRESS NAKK!!
-document.getElementById('yes-btn').onclick = () => {
-  music.play().catch(()=>{});
-  location.href='yes.html';
-};
+  // AUTO PLAY WHEN PRESS NAKK!!
+  document.getElementById('yes-btn').onclick = () => {
+    music.play().catch(()=>{});
+    location.href='yes.html';
+  };
 
-// ⏳ COUNTDOWN LOGIC
-const countdown = new Date("2026-02-10T00:00:00").getTime();
+  // ⏳ COUNTDOWN LOGIC
+  const countdown = new Date("2026-02-01T00:00:00").getTime();
 
-const timerDisplay = document.getElementById("timer");
-const mainButtons = document.getElementById("mainButtons");
-const lockText = document.getElementById("lockText");
-const countdownBox = document.getElementById("countdownBox");
+  const timerDisplay = document.getElementById("timer");
+  const mainButtons = document.getElementById("mainButtons");
+  const lockText = document.getElementById("lockText");
+  const countdownBox = document.getElementById("countdownBox");
 
-const interval = setInterval(() => {
+  const interval = setInterval(() => {
 
-  const now = new Date().getTime();
-  const distance = countdown - now;
+    const now = new Date().getTime();
+    const distance = countdown - now;
 
-  if(distance <= 0){
+    if(distance <= 0){
 
-    clearInterval(interval);
+      clearInterval(interval);
 
-    // HIDE ALL LOCK STUFF
-    countdownBox.style.display = "none";
-    lockText.style.display = "none";
+      // HIDE ALL LOCK STUFF
+      countdownBox.style.display = "none";
+      lockText.style.display = "none";
 
-    // SHOW BUTTONS 🔥
-    mainButtons.style.display = "block";
+      // SHOW BUTTONS 🔥
+      mainButtons.style.display = "block";
 
-  } else {
+    } else {
 
-    const days = Math.floor(distance / (1000*60*60*24));
-    const hours = Math.floor((distance % (1000*60*60*24))/(1000*60*60));
-    const minutes = Math.floor((distance % (1000*60*60))/(1000*60));
-    const seconds = Math.floor((distance % (1000*60))/1000);
+      const days = Math.floor(distance / (1000*60*60*24));
+      const hours = Math.floor((distance % (1000*60*60*24))/(1000*60*60));
+      const minutes = Math.floor((distance % (1000*60*60))/(1000*60));
+      const seconds = Math.floor((distance % (1000*60))/1000);
 
-    timerDisplay.textContent =
-      `${days}d ${hours}h ${minutes}m ${seconds}s`;
-  }
+      timerDisplay.textContent =
+              `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
 
-}, 1000);
+  }, 1000);
 
 </script>
 
 </body>
 </html>
-
